@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload for Public Users</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+    }
+
+    iframe {
+      border: none;
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+
+    .no-frame {
+      display: none;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Your Apps Script Web App iframe -->
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbw8lgOpk_dH97jY2qrl4yCSdSiUnSMfXK8bVZ9rMuT75X6Wpkc932NC2ZvzQGEyMEO9tw/exec"
+    allowfullscreen
+    loading="lazy"
+    allow="camera">
+  </iframe>
+
+  <!-- Fallback message if iframe is blocked -->
+  <div class="no-frame">
+    <h2>⚠ Unable to load the form here</h2>
+    <p>Your browser blocked this page from loading inside the site for security reasons.</p>
+    <p><a href="https://script.google.com/macros/s/AKfycbw8lgOpk_dH97jY2qrl4yCSdSiUnSMfXK8bVZ9rMuT75X6Wpkc932NC2ZvzQGEyMEO9tw/exec" target="_blank">
+      👉 Click here to open the form in a new tab
+    </a></p>
+  </div>
+
+  <script>
+    // Optional: detect if iframe is blocked
+    const iframe = document.querySelector("iframe");
+    iframe.onerror = () => {
+      iframe.style.display = "none";
+      document.querySelector(".no-frame").style.display = "block";
+    };
+  </script>
+</body>
+</html>
